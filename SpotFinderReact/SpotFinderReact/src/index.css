@@ -1,0 +1,200 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* opcional para garantizar que el body siempre cubra la ventana */
+body {
+  min-height: 100vh;
+  /* background ya lo tienes definido más abajo; si lo quieres aquí, mantenlo */
+  /* background: linear-gradient(135deg, #095D59 0%, #13315C 100%); */
+}
+
+body {
+  background-color: white;
+  /*!background-image: url('/Fondo_Home.jpg');*/
+  background: linear-gradient(135deg, #095D59 0%, #13315C 100%)
+}
+
+:root {
+  --bs-success: #095D59;
+  --bs-success-rgb: 14, 71, 73;
+}
+#root {
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-brand {
+  background-color: #CDCDCD;
+  border-radius: 50px;
+  border: 5px solid #CDCDCD;
+  width: auto;
+  height: 60px;
+}
+
+.navbar {
+  border-bottom: #CDCDCD solid 2px;
+  background-color: #0E4749;
+  opacity: 100%;
+}
+
+.card {
+  border: #C4BBB8 solid 2px;
+}
+
+.btn-group .btn{
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: #C4BBB8;
+  --bs-btn-bg: #C4BBB8;
+  --bs-btn-border-color: #C4BBB8;
+  --bs-btn-hover-color: #C4BBB8;
+  --bs-btn-hover-border-color: #C4BBB8;
+}
+
+
+.btn-success {
+  --bs-btn-color: white;
+  --bs-btn-bg: var(--bs-success);
+  --bs-btn-border-color: #095D59;
+  --bs-btn-hover-bg: #00A9A5;
+  --bs-btn-hover-border-color: #00A9A5;
+  --bs-btn-hover-color: Black;
+  --bs-btn-active-bg:  #C4BBB8;
+  --bs-btn-active-border-color: var(--bs-btn-active-bg);
+}
+
+.btn-danger {
+  --bs-btn-bg: #BA3F1D;
+  --bs-btn-border-color: #ffffff;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-danger:hover {
+  --bs-btn-bg: #BA3F1D;
+  --bs-btn-border-color: #C4BBB8;
+  --bs-btn-hover-bg: #BA3F1D;
+  border: white solid 2px;
+  
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+}
+
+.navbar-brand img {
+  width: auto;
+  height: 50px;
+}
+
+.nav-link.active {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  color: white !important;
+}
+
+.sidebar-avatar {
+  width: 96px;
+  height: 96px;
+}
+
+/* Evita el scroll cuando la app añade .no-scroll al body */
+/* Mantener comportamiento sencillo por defecto (se ajusta por media queries abajo) */
+body.no-scroll {
+  /* no cambiar aquí: controlamos por media queries */
+}
+
+/* --- NUEVA LÓGICA: solo bloquear scroll en pantallas grandes (PC) --- */
+@media (min-width: 992px) {
+  /* En escritorio: bloquear el scroll de la ventana */
+  body.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  /* NOTA: removido centrado forzado y limitaciones de .card para evitar
+     que el layout de escritorio se desplace/afecte. */
+}
+
+/* En pantallas pequeñas, permitir scroll normal (móvil) */
+@media (max-width: 991.98px) {
+  body.no-scroll {
+    overflow: auto;
+    height: auto;
+  }
+
+  .card {
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+.btn-admin {
+  background: linear-gradient(135deg, #095D59 0%, #13315C 100%);
+  color: white;
+  border: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: white solid 1px;
+}
+
+.btn-admin:hover {
+  background: linear-gradient(135deg, #0B6E6A 0%, #1A3E6E 100%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: white solid 2px;
+  color: white;
+}
+
+.btn-admin:active {
+  transform: translateY(2px);
+}
+
+.btn-guardar{
+  background: linear-gradient(135deg, #095D59 0%, #13315C 100%);
+  color: white;
+  border: white solid 1px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: white solid 1px;
+}
+
+.btn-guardar:hover{
+  background: linear-gradient(135deg, #095D59 0%, #13315C 100%);
+  border: white solid 1px;
+  color: white;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-eliminar{
+  background: #BA3F1D;
+  color: white;
+  border: white solid 1px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: white solid 1px;
+}
+
+.btn-eliminar:hover{
+  background: #BA3F1D;
+  color: white;
+  border: white solid 1px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: white solid 1px;
+}
+
+.card-header-administracion {
+  background: linear-gradient(135deg, #095D59 0%, #13315C 100%);
+  color: white;
+  border-bottom: 2px solid #0B6E6A; /* Mantener el borde inferior */
+  border-radius: 12px 12px 0 0; /* Mantener la forma redondeada */
+  padding: 1rem;
+  font-weight: bold;
+}
+
+.table-admin{
+  border: 2px solid #C4BBB8;
+
+}

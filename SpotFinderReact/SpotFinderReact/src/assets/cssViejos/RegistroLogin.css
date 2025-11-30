@@ -1,0 +1,78 @@
+.carta-dinamica,
+.carta-dinamicaRegistro {
+  width: 100%;
+  max-width: 720px;          /* controla el ancho máximo en desktop */
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(14,71,73,0.12);
+  padding: 40px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin: 16px auto !important; /* centra y evita overflow en móvil */
+  border: 2px solid #CDCDCD;
+  box-sizing: border-box;   /* importante para paddings */
+}
+
+/* efecto hover solo en pantallas grandes (no en móviles) */
+@media (min-width: 576px) {
+  .carta-dinamica:hover,
+  .carta-dinamicaRegistro:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 32px rgba(0,169,165,0.18);
+  }
+}
+
+/* ajustes para pantallas pequeñas */
+@media (max-width: 575.98px) {
+  .carta-dinamica,
+  .carta-dinamicaRegistro {
+    padding: 18px;
+    border-radius: 12px;
+    max-width: 92%;        /* deja algo de margen lateral */
+  }
+
+  .carta-dinamicaRegistro {
+    width: 92%;
+  }
+}
+
+.envoltorio-login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50%; /* Ocupa toda la altura de la pantalla */
+  width: 100%;
+}
+
+.fondo-ritual {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh; /* <- usar 100vh para cubrir toda la pantalla */
+  height: 100vh;
+  padding: 40px;
+  background-size: cover;
+  background-position: center;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #095D59 0%, #13315C 100%);
+}
+.fondo-blanco-dinamico{
+  background: linear-gradient(135deg, #095D59 0%, #13315C 100%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh; /* <- usar 100vh para cubrir toda la pantalla */
+  height: 100vh;
+  padding: 20px;
+  background-size: cover;
+  background-position: center;
+  box-sizing: border-box;
+}
+/* añadir estilos para la clase que usas en JSX */
+.envoltorio-login-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* opcional: controlar altura interna si necesitas centrar verticalmente dentro del main */
+  min-height: calc(100vh - 56px); /* si tienes navbar de 56px; ajusta según tu navbar */
+}

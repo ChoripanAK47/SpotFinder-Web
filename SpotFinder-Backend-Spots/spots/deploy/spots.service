@@ -1,0 +1,19 @@
+[Unit]
+Description=Spots microservice
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/opt/spots
+ExecStart=/usr/bin/java -jar /opt/spots/spots.jar
+SuccessExitStatus=143
+Restart=on-failure
+RestartSec=10
+Environment=SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/db_spots_vm?useSSL=false&serverTimezone=UTC
+Environment=SPRING_DATASOURCE_USERNAME=tu_usuario
+Environment=SPRING_DATASOURCE_PASSWORD=tu_password
+Environment=AWS_REGION=tu-region
+Environment=AWS_S3_BUCKET=tu-bucket
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,112 @@
+body{
+    background-color: aliceblue;
+    background-image: url("../img/FONDO_SPOT.jpg");
+    overflow-x: hidden;
+}
+main{
+    overflow-x: hidden;
+}
+.navbar-brand{
+    color: aliceblue;
+}
+.nav-item{
+    font-style: oblique;
+    font-weight: normal;
+    font-size: medium;
+    padding: 5px;
+    
+}
+.cardsSpots{
+ padding-left: 0.3%;
+ padding-right: 0.3%;
+}
+.navbarPrincipal{
+    background-color: #06402B;
+    border-bottom: aliceblue solid 2px;
+    border-radius: 0%;
+    opacity: 97.5%;
+}
+.navbarSecundaria{
+    background-color: #06402B;
+    border-bottom: aliceblue solid 2px;
+    border-radius: 0%;
+    opacity: 97.5%;
+}
+.monteKilawea{
+    width: 15%;
+    background-color: aliceblue;
+}
+.monteKilaweaMap1{
+    width: 75%;
+    background-color: aliceblue;
+}
+.monteKilaweaMap2{
+    width: 25%;
+    background-color: aliceblue;
+}
+.monteKilaweaSpotIndividual{
+    background-color: aliceblue;
+}
+.cardMonteKilawea{
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    border-right: aliceblue solid 2px;
+    background-color: aliceblue;
+}
+.cardMap{
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-right: aliceblue solid 2px;
+    background-color: aliceblue;
+    width: 95%;
+}
+.cardSpotIndividual{
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    border-right: aliceblue solid 2px;
+    background-color: aliceblue;
+    width: 95%;
+}
+.imagenMapa{
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    object-fit: cover;
+}
+.imagenSpotIndividual{
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    height: 400px;
+    object-fit: cover;
+}   
+.col-sm-6{
+    width: 25%;
+}
+.imagenSpots{
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    height: 250px;
+    object-fit: cover;
+}
+.XD{
+    margin: 0%;
+    padding: 0%;
+}
+
+.navSecText{
+    font-size: medium;
+    color: aliceblue;
+}
+
+.conenedorMap{
+    margin-top: 1%;
+    margin-bottom: 1%;
+}

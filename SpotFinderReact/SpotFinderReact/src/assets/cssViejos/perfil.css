@@ -1,0 +1,56 @@
+/* Contenedor centrado */
+.envoltorio-user {
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Imagen de perfil elevada y circular */
+.Foto-perfil {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border: 4px solid #fff;
+  background-color: #eee;
+}
+
+
+/* Subtítulo */
+.text-muted {
+  font-style: italic;
+  color: #6c757d;
+}
+
+/* Lista de datos */
+.list-group-item {
+  background-color: transparent;
+  border: none;
+  padding-left: 0;
+  font-size: 1rem;
+}
+
+/* Botón de cierre de sesión */
+.btn-outline-danger {
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid #BA3F1D;
+  color: #BA3F1D;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-outline-danger:hover {
+  background-color: #BA3F1D;
+  border: 2px solid #BA3F1D;
+  color: #fcfbfb;
+}
+
+/* Carta dinámica con fondo sutil */
+.carta-dinamica-fluid {
+  background-color: rgba(255, 255, 255, 0.897); /* ajusta alfa según prefieras */
+  padding: 1.8rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  z-index: 1;
+}

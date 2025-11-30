@@ -1,0 +1,45 @@
+# Build output
+target
+*.jar
+*.war
+*.ear
+
+# Maven
+.mvn
+mvnw
+mvnw.cmd
+
+# IDE
+.vscode
+.idea
+*.iml
+*.swp
+*.swo
+*~
+.settings
+.classpath
+.project
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Logs
+*.log
+
+# Documentation
+README.md
+HELP.md
+docs
+
+# Tests (comentado porque spring boot necesita los tests para build)
+# src/test
+
+# Configuración local
+.env
+*.pem

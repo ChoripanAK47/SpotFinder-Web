@@ -1,0 +1,68 @@
+services:
+  # --- Base de Datos Compartida ---
+  mysqldb:
+    image: mysql:8.0
+    container_name: spotfinder-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - mysql_data:/var/lib/mysql
+      # Ejecuta el script para crear las 2 bases de datos al inicio
+      - ./db-init:/docker-entrypoint-initdb.d
+    networks:
+      - spotfinder-net
+
+  # --- Backend: Microservicio de Usuarios ---
+  users-service:
+    build: ./SpotFinder-Backend-Usuarios/usuarios
+    container_name: spotfinder-users
+    depends_on:
+      - mysqldb
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/db_usuarios_vm?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    networks:
+      - spotfinder-net
+
+  # --- Backend: Microservicio de Spots ---
+  spots-service:
+    build: ./SpotFinder-Backend-Spots/spots
+    container_name: spotfinder-spots
+    depends_on:
+      - mysqldb
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/db_spots_vm?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      FILE_UPLOAD_DIR: uploads
+    volumes:
+      # Persistencia de imágenes en tu carpeta local 'uploads_data'
+      - ./uploads_data:/app/uploads
+    networks:
+      - spotfinder-net
+
+  # --- Frontend: React + API Gateway (Nginx) ---
+  frontend:
+    build:
+      context: ./SpotFinderReact/SpotFinderReact
+      # Pasa tu API Key aquí si la necesitas en tiempo de build
+      args:
+        VITE_GOOGLE_MAPS_API_KEY: "AIzaSyDWCJRGroTLeBSYreBAqWrqBN0pIFLwf0U"
+        VITE_API_BASE_URL: "" # Forzar URL relativa para evitar localhost:8080
+    container_name: spotfinder-frontend
+    depends_on:
+      - users-service
+      - spots-service
+    ports:
+      - "80:80" # Exponemos todo en el puerto 80 del host
+    networks:
+      - spotfinder-net
+
+volumes:
+  mysql_data:
+
+
+networks:
+  spotfinder-net:

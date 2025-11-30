@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  # Base de datos MySQL
+  mysqldb:
+    image: mysql:8.0
+    container_name: spotfinder-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_spots_vm
+    ports:
+      - "3307:3306" # Puerto externo 3307 para evitar conflicto con local
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  # Backend Spring Boot
+  spots-service:
+    build: . # Construye usando el Dockerfile en el directorio actual
+    container_name: spotfinder-backend-spots
+    depends_on:
+      - mysqldb
+    ports:
+      - "8080:8080"
+    environment:
+      # Conexión a la BD usando el nombre del servicio 'mysqldb'
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/db_spots_vm?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      # Directorio de subida dentro del contenedor
+      FILE_UPLOAD_DIR: uploads
+    volumes:
+      # PERSISTENCIA DE FOTOS:
+      # Mapea la carpeta 'uploads_data' de tu PC a '/app/uploads' en el contenedor.
+      # Así, si borras el contenedor, las fotos siguen en tu carpeta 'uploads_data'.
+      - ./uploads_data:/app/uploads
+
+volumes:
+  mysql_data:
